@@ -1,0 +1,116 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 14px/1.5 '微软雅黑',tahoma,helvetica,clean,sans-serif;
+}
+table{
+    table-layout: fixed;
+    empty-cells: show;
+    border-collapse: collapse;
+}
+/***************************************
+ ******* 滚动条 ***********************/
+::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #999;
+    -webkit-border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #9f9f9f;
+}
+/***************************************/
+
+.wrapper{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.session .title{
+    text-align: left;
+}
+
+.cost-table{
+    width: 100%;
+    line-height: 2;
+}
+.cost-table thead{
+    background: rgba(255, 25, 25, 0.5);
+}
+.cost-table tbody tr:nth-child(even){
+    background: rgba(25, 25, 255, 0.1);
+}
+.cost-table th, .cost-table td{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.cost-table tbody td{
+}
+.cost-table .no{
+    width: 25px;
+}
+.cost-table .cost-time{
+    width: 110px;
+}
+.cost-table .name{
+    width: 200px;
+}
+.cost-table .amount{
+    width: 60px;
+}
+.cost-table .average-people{
+    width: 120px;
+}
+.cost-table .filler{
+    width: 60px;
+}
+.cost-table .payer{
+    width: 65px;
+}
+.cost-table .fill-time{
+    width: 110px;
+}
+.cost-table tfoot td{
+}
+.cost-table tfoot input, .cost-table tfoot textarea, .cost-table tfoot select{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.cost-table tfoot input{
+    height: 24px;
+    width: 100%;
+}
+.cost-table tfoot textarea{
+    height: 48px;
+    width: 100%;
+}
+.cost-table tfoot select{
+    width: 100%;
+}
+.cost-table tfoot .average-people, .cost-table tfoot .remark{
+    width: auto;
+}
+.cost-table tfoot .cost-time, .cost-table tfoot .name, .cost-table tfoot .amount, .cost-table tfoot .remark{
+    
+}
+.cost-table .cost-action{
+    text-align: right;
+}
+.cost-table .cost-action button{
+    text-transform: uppercase;
+}
