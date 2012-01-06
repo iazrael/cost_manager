@@ -1,7 +1,7 @@
 <?php 
 	if(isset($_POST['submit'])){
-		require_once('tb-db.php');
-		require_once('functions.php');
+		require_once('server/tb-db.php');
+		require_once('server/functions.php');
 		
 		$uname = escape_string($_POST['uname']);
 		$upwd = escape_string($_POST['upwd']);

@@ -2,8 +2,8 @@
     /**
      * cost manager
      **/
-     require_once('check-right.php');
-     require_once('tb-db.php');
+     require_once('server/check-right.php');
+     require_once('server/tb-db.php');
      
      $sql = 'SELECT * FROM record ';
      $result = $tbdb->query($sql);
