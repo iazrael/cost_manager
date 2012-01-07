@@ -16,7 +16,7 @@ $averagePeople = escape_string($_POST['averagePeople']);
 $payer = escape_string($_POST['payer']);
 $remark = escape_string($_POST['remark']);
 
-$sql = "INSERT INTO record(costtime,purchase,amount,averagepeople,payer,remark,createtime,creator) 
+$sql = "INSERT INTO app_cost_record(costtime,purchase,amount,averagepeople,payer,remark,createtime,creator) 
 				VALUES('$costTime','$purchase',$amount,'$averagePeople','$payer','$remark',now(),'$user')";
 
 if($tbdb->insert($sql)){

@@ -2,10 +2,10 @@
 
 //define('DB_NAME', 'tally_book');
 //开发用数据库
-define('DB_NAME', 'cost');
+define('DB_NAME', 'cnssrtco_imatlas');
 
 /** MySQL数据库用户名 */
-define('DB_USER', 'root');
+define('DB_USER', 'cnssrtco_imatlas');
 
 /** MySQL数据库密码 */
 define('DB_PASSWORD', '3.141592654');
