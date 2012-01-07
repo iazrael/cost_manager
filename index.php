@@ -32,7 +32,7 @@
                 <tbody>
 <script id="listTmpl" type="text/plain">
     <% for(var i in list){ %>
-                    <tr>
+                    <tr id="record-<%=list[i].id %>" class="avg-<%=list[i].averagepeople.length%> <%=list[i].averagepeople.join(" ")%>">
                         <td class="no"><%=index++ %></td>
                         <td class="cost-time"><%=list[i].costtime %></td>
                         <td class="name"><%=list[i].purchase %></td>

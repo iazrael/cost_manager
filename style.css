@@ -68,7 +68,11 @@ table{
     background: rgba(25, 25, 255, 0.1);
 }
 .cost-table tbody tr.new-add{
-    background: #F2F215;
+    background-color: #F2F215;
+}
+.cost-table tbody tr.avg-3{
+    border-left: #FE8B8B solid;
+    color: rgba(250, 15, 106, 0.8);
 }
 .cost-table th, .cost-table td{
     text-overflow: ellipsis;
@@ -79,6 +83,8 @@ table{
 }
 .cost-table .no{
     width: 25px;
+    font-style: italic;
+    color: #999;
 }
 .cost-table .cost-time{
     width: 110px;

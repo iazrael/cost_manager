@@ -95,6 +95,7 @@
                 var html = String.template(tmplStr, {
                     index: $tbody.children().length + 1,
                     list: [{
+                        id: data.id,
                         costtime: costTime,
                         purchase: purchase,
                         amount: amount,
@@ -123,7 +124,7 @@
                 $purchase.val('');
                 $amount.val('');
                 $remark.val('');
-                $averagePeople.val('')
+                // $averagePeople.val('')
             }else{
                 alert('失败了');
             }
