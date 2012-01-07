@@ -5,8 +5,9 @@
 	if(isset($user) && isset($login) && $login='3.141592654'){
 		
 	}else{
-		header("HTTP/1.1 303 To Index");
-        header("Location: ./login.php");
+        header("HTTP/1.1 404 Not Found");
+        header("Status: 404 Not Found"); 
+        echo "404 Not Found";
         exit();
 	}
 ?>

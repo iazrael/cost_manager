@@ -1,7 +1,8 @@
 <?php
     /**
      * cost manager
-     **/    
+     **/
+    require_once('server/check-right.php');
 ?>
 <!DOCTYPE html>
 <html>

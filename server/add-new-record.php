@@ -1,5 +1,5 @@
 <?php
-require_once('check-right.php');
+require_once('check-right2.php');
 require_once('tb-db.php');
 require_once('JSON.php');
 require_once('functions.php');

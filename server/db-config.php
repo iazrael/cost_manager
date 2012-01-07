@@ -8,7 +8,7 @@ define('DB_NAME', 'cost');
 define('DB_USER', 'root');
 
 /** MySQL数据库密码 */
-define('DB_PASSWORD', '123');
+define('DB_PASSWORD', '3.141592654');
 
 /** MySQL主机名 */
 define('DB_HOST', 'localhost');
@@ -17,6 +17,6 @@ define('DB_HOST', 'localhost');
 define('DB_CHARSET', 'utf8');
 
 /**debug模式,输出数据库错误**/
-define('DB_DEBUG','1');
+define('DB_DEBUG','0');
 
 ?>
