@@ -37,7 +37,13 @@ table{
     text-align: center;
     text-transform: uppercase;
 }
-
+.version{
+    vertical-align: top;
+    font-weight: normal;
+    font-size: 12px;
+    font-style: italic;
+    color: #999;
+}
 .session .title{
     text-align: left;
 }
@@ -51,6 +57,9 @@ table{
 }
 .cost-table tbody tr:nth-child(even){
     background: rgba(25, 25, 255, 0.1);
+}
+.cost-table tbody tr.new-add{
+    background: #F2F215;
 }
 .cost-table th, .cost-table td{
     text-overflow: ellipsis;
@@ -113,4 +122,32 @@ table{
 }
 .cost-table .cost-action button{
     text-transform: uppercase;
+}
+
+.clearing-result p{
+    padding: 0 5px;
+    font-size: 1.5em;
+}
+.clearing-result span{
+    display: inline-block;
+}
+.clearing-result .name{
+    font-weight: bold;
+    width: 60px;
+}
+.clearing-result .amount{
+    width: 80px;
+}
+.clearing-result .equal{
+    color: red;
+}
+.clearing-result .plus{
+    color: blue;
+}
+.clearing-result .minus{
+    color: green;
+}
+.clearing-result .result{
+    font-size: 2em;
+    font-weight: bold;
 }

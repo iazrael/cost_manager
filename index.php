@@ -1,13 +1,7 @@
 <?php
     /**
      * cost manager
-     **/
-     require_once('server/check-right.php');
-     require_once('server/tb-db.php');
-     
-     $sql = 'SELECT * FROM record ';
-     $result = $tbdb->query($sql);
-     
+     **/    
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +12,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2 class="title">cost manager</h2>
+        <h2 class="title">cost manager<span class="version">beta</span></h2>
         <div class="session">
             <h2 class="title">list</h2>
             <table id="costTable" class="cost-table">
@@ -28,26 +22,29 @@
                         <th class="cost-time">消费时间</th>
                         <th class="name">消费项目</th>
                         <th class="amount">价格</th>
-                        <th class="average-people">均摊人</th>
+                        <th class="average-people">平摊人</th>
                         <th class="payer">付款人</th>
                         <th class="remark">备注</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
-                    $no = 1;
-                    while($row=$tbdb->getarray($result)){
-                ?>
+<script id="listTmpl" type="text/plain">
+    <% for(var i in list){ %>
                     <tr>
-                        <td class="no"><?php echo $no++;?></td>
-                        <td class="cost-time"><?php echo $row[costtime];?></td>
-                        <td class="name"><?php echo $row[purchase];?></td>
-                        <td class="amount"><?php echo $row[amount];?></td>
-                        <td class="average-people"><?php echo $row[averagepeople];?></td>
-                        <td class="payer"><?php echo $row[payer];?></td>
-                        <td class="remark"><?php echo $row[remark];?></td>
+                        <td class="no"><%=index++ %></td>
+                        <td class="cost-time"><%=list[i].costtime %></td>
+                        <td class="name"><%=list[i].purchase %></td>
+                        <td class="amount"><%=list[i].amount %></td>
+                        <td class="average-people">
+        <% for(var j in list[i].averagepeople){ %> 
+                            <span><%=list[i].averagepeople[j]%></span>
+        <% } %>
+                        </td>
+                        <td class="payer"><%=list[i].payer %></td>
+                        <td class="remark"><%=list[i].remark %></td>
                     </tr>
-                <?php } ?>
+    <% } %>
+</script>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -74,6 +71,7 @@
                     <tr>
                         <td colspan="7" class="cost-action">
                             <button id="addRecord" cmd="addRecord">save</button>
+                            <!--<button id="clearing" cmd="clearing">clearing</button>-->
                         </td>
                     </tr>
                 </tfoot>
@@ -81,7 +79,28 @@
         </div>
         <div class="session">
             <h2 class="title">clearing</h2>
-            <div ></div>
+            <div id="clearingResult" class="clearing-result">
+<script id="clearingTmpl" type="text/plain">
+    <% 
+    var income, outcome, result;
+    for(var i in list){ 
+        income = Math.round(list[i].income * 100) / 100;
+        outcome = Math.round(list[i].outcome * 100) / 100;
+        result = Math.round((income - outcome) * 100) / 100;
+    %>
+                <p>
+                    <span class="name"><%=i %></span>
+                    <span class="equal">=</span>
+                    <span class="plus">+</span>
+                    <span class="amount"><%=income.format('#.00') %></span>
+                    <span class="minus">-</span>
+                    <span class="amount"><%=outcome.format('#.00') %></span>
+                    <span class="equal">=</span>
+                    <span class="result"><%=result.format('#.00') %></span>
+                </p>
+    <% } %>
+</script>
+            </div>
         </div>
     </div>
 <script type="text/javascript" src="js/jquery.js"></script>
