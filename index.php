@@ -37,7 +37,6 @@
                 <?php 
                     $no = 1;
                     while($row=$tbdb->getarray($result)){
-	 	$typeArr[$row[id]] = array('id'=>"$row[id]",'name'=>"$row[name]");
                 ?>
                     <tr>
                         <td class="no"><?php echo $no++;?></td>
