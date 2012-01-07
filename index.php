@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="user">welcome:<span class="name"><?php echo $_SESSION['loginuser']?></span></div>
         <h2 class="title">cost manager<span class="version">beta</span></h2>
         <div class="session">
             <h2 class="title">list</h2>

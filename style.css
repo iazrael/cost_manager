@@ -32,7 +32,16 @@ table{
     width: 800px;
     margin: 0 auto;
 }
-
+.user{
+    float: right;
+    text-transform: uppercase;
+    font-weight: 1.5em;
+}
+.user .name{
+    font-weight: bold;
+    color: #369;
+    margin-left: 10px;
+}
 .title{
     text-align: center;
     text-transform: uppercase;
