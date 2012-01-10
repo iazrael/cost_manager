@@ -7,7 +7,7 @@
 		$upwd = escape_string($_POST['upwd']);
 		$info = '';
 		if($uname && $upwd){
-			$queryString = "SELECT * FROM app_cost_user WHERE uid='$uname' AND pwd='$upwd'";
+			$queryString = "SELECT * FROM user WHERE uid='$uname' AND pwd='$upwd'";
 			if($tbdb->getfirst($queryString)){
 				session_start();
 				$_SESSION['logininfo']='3.141592654';

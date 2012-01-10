@@ -8,7 +8,7 @@ header('Content-Type: application/json; charset=UTF-8');
 $json = new Services_JSON();
 $result = array();
 
-$sql = "SELECT * FROM app_cost_record WHERE isreconciled=0 ORDER BY costtime DESC";
+$sql = "SELECT * FROM record WHERE isreconciled=0 ORDER BY costtime DESC";
 
 $queryResult = $tbdb->query($sql);
 $records = array();
