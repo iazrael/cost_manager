@@ -2,10 +2,10 @@
 
 //define('DB_NAME', 'tally_book');
 //开发用数据库
-define('DB_NAME', 'cost_manager');
+define('DB_NAME', 'imatlas_cost_manager');
 
 /** MySQL数据库用户名 */
-define('DB_USER', 'azrael_cost');
+define('DB_USER', 'costmanager');
 
 /** MySQL数据库密码 */
 define('DB_PASSWORD', 'asdfcost3.14');
