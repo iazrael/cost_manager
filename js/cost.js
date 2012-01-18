@@ -47,6 +47,7 @@
         var costTime = $costTime.val().trim();
         var purchase = $purchase.val().trim();
         var amount = $amount.val().trim();
+        amount = Number(amount);
         var averagePeople = $.trim($averagePeople.val());
         var payer = $payer.val().trim();
         var remark = $remark.val().trim();
@@ -74,10 +75,14 @@
             alert('请选择平摊人');
             return;
         }
-        if(averagePeople.split(',').length < 2){
-            alert('一个人平摊什么?');
+        if(averagePeople == payer){
+            alert('自己跟自己算什么啊?');
             return;
         }
+        /*if(averagePeople.split(',').length < 2){
+            alert('一个人平摊什么?');
+            return;
+        }*/
         $addRecord.attr('disabled', 'disabled');
         $.post('server/add-new-record.php', {
             costTime: costTime,
@@ -106,13 +111,26 @@
                 });
                 $tbody.append($(html).addClass('new-add'));
                 var p, avgCount = averagePeople.length;
-                for(var j in averagePeople){
-                    p = averagePeople[j];
+                statics[payer] || (statics[payer] = {outcome: 0, income: 0});
+                if(avgCount == 1){
+                    p = averagePeople[0];
                     statics[p] || (statics[p] = {outcome: 0, income: 0});
-                    if(p == payer){
-                        statics[p].income += amount * (avgCount - 1) / avgCount;
-                    }else{
-                        statics[p].outcome += amount * 1 / avgCount;
+                    statics[payer].income += amount;
+                    statics[p].outcome += amount;
+                }else{
+                    var paperHasGet = false;
+                    for(var j in averagePeople){
+                        p = averagePeople[j];
+                        statics[p] || (statics[p] = {outcome: 0, income: 0});
+                        if(p == payer){
+                            paperHasGet = true;
+                            statics[p].income += amount * (avgCount - 1) / avgCount;
+                        }else{
+                            statics[p].outcome += amount * 1 / avgCount;
+                        }
+                    }
+                    if(!paperHasGet){
+                        statics[payer].income += amount;
                     }
                 }
                 tmplStr = getTemplate('clearingTmpl');
@@ -157,13 +175,26 @@
                     record.averagepeople = record.averagepeople.split(',');
                     record.isreconciled = Number(record.isreconciled);
                     avgCount = record.averagepeople.length;
-                    for(var j in record.averagepeople){
-                        p = record.averagepeople[j];
+                    statics[record.payer] || (statics[record.payer] = {outcome: 0, income: 0});
+                    if(avgCount == 1){
+                        p = record.averagepeople[0];
                         statics[p] || (statics[p] = {outcome: 0, income: 0});
-                        if(p == record.payer){
-                            statics[p].income += record.amount * (avgCount - 1) / avgCount;
-                        }else{
-                            statics[p].outcome += record.amount * 1 / avgCount;
+                        statics[record.payer].income += record.amount;
+                        statics[p].outcome += record.amount;
+                    }else{
+                        var paperHasGet = false;
+                        for(var j in record.averagepeople){
+                            p = record.averagepeople[j];
+                            statics[p] || (statics[p] = {outcome: 0, income: 0});
+                            if(p == record.payer){
+                                paperHasGet = true;
+                                statics[p].income += record.amount * (avgCount - 1) / avgCount;
+                            }else{
+                                statics[p].outcome += record.amount * 1 / avgCount;
+                            }
+                        }
+                        if(!paperHasGet){
+                            statics[record.payer].income += record.amount;
                         }
                     }
                 }
